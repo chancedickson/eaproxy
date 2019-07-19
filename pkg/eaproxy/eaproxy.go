@@ -3,7 +3,6 @@ package eaproxy
 import (
 	"eaproxy/pkg/dhcp"
 	"eaproxy/pkg/eapacket"
-	"eaproxy/pkg/mac"
 	"eaproxy/pkg/socket"
 	"errors"
 	"fmt"
@@ -130,8 +129,9 @@ func (eaproxy *Eaproxy) handleEvent(event unix.EpollEvent, errSignal chan error)
 	}
 }
 
+// no-op currently. May be used later.
 func (eaproxy *Eaproxy) handleRouterPacket(packet *eapacket.Packet) error {
-	return mac.Set(eaproxy.ifVlan, packet.Src().String())
+	return nil
 }
 
 func (eaproxy *Eaproxy) handleWanPacket(packet *eapacket.Packet) error {
