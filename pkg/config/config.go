@@ -8,9 +8,9 @@ import (
 
 // Config struct
 type Config struct {
-	WanIfname    string
-	RouterIfname string
-	VlanID       int
+	WanIfname    string `toml:"wan_ifname"`
+	RouterIfname string `toml:"router_ifname"`
+	VlanID       int    `toml:"vlan_id" default:"-1"`
 }
 
 // LoadConfig reads a file and parses it as toml into an eaproxy.Config
