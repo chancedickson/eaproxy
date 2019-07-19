@@ -135,5 +135,8 @@ func (eaproxy *Eaproxy) handleRouterPacket(packet *eapacket.Packet) error {
 }
 
 func (eaproxy *Eaproxy) handleWanPacket(packet *eapacket.Packet) error {
-	return dhcp.Restart(eaproxy.ifVlan)
+	if packet.Type() == eapacket.Success {
+		return dhcp.Restart(eaproxy.ifVlan)
+	}
+	return nil
 }
