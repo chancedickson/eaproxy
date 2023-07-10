@@ -1,0 +1,9 @@
+version: "3"
+services:
+  eaproxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/go/src/eaproxy
+    command: sleep infinity
